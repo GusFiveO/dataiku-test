@@ -29,6 +29,8 @@ class C3PO:
 
 
    def computeNextTravel(self, riskDays, millenniumFalcon: MillenniumFalcon, countdown, bountyHuntersList):
+      if self.bestRouteRiskDays is not None and riskDays > self.bestRouteRiskDays:
+         return
       if millenniumFalcon.getTravelDay() > countdown:
          return
       if millenniumFalcon.getPlanet() == "Endor":
