@@ -2,7 +2,7 @@
 
 from src.C3PO import C3PO
 
-EMPIRE_FOLDER = "test/empire/"
+EMPIRE_FOLDER = "./test/empire/"
 MILLENNIUM_FALCON_FOLDER = "./test/millennium-falcon/"
 
 expectedOddsDict = {
@@ -28,7 +28,7 @@ if __name__ == "__main__":
                 expectedOdds = expectedOddsDict[fileName]
                 odds = testC3PO.giveMeTheOdds(testedFilePath)
                 if odds != expectedOdds:
-                    print(f"{testedFilePath} TEST FAILED ❌: expected odds: {expectedOdds}; obtain: {odds}")
+                    print(f"{testedFilePath} TEST FAILED ❌: expected odds: {expectedOdds}; obtained: {odds}")
                 else:
                     print(f"{testedFilePath} TEST PASSED ✅")
             except Exception as e:
