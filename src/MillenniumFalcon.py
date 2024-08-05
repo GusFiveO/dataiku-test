@@ -24,6 +24,15 @@ class MillenniumFalcon:
     def wait(self):
         self.travelDay += 1
 
+    def waitOrRefuel(self):
+        if self.autonomy == self.maxAutonomy:
+            self.wait()
+        else:
+            self.refuel()
+
+    def reset(self, origin, travelTime):
+        self.planet = origin
+        self.travelDay -= travelTime
 
     def getTravelDay(self):
         return self.travelDay

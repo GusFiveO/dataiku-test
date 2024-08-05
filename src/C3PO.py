@@ -21,6 +21,7 @@ class C3PO:
       riskDays = 0
       self.computeNextTravel(riskDays, self.milleniumFalcon, countdown, bountyHunters)
       odds = computeOdds(self.bestRouteRiskDays)
+      self.bestRouteRiskDays = None
       return odds
 
    def updateBestRouteRiskDays(self, riskDays):
@@ -52,11 +53,7 @@ class C3PO:
                currentRiskDays += 1
          millenniumFalconCopy.travelTo(destination, travelTime)
          self.computeNextTravel(currentRiskDays, millenniumFalconCopy, countdown, bountyHuntersList)
+         millenniumFalconCopy.reset(origin, travelTime)
          while millenniumFalconCopy.getTravelDay() + travelTime < countdown:
-            if millenniumFalconCopy.isFullOfFuel():
-               millenniumFalconCopy.wait()
-            else:
-               millenniumFalconCopy.refuel()
-            if isBountyHuntersPresent(millenniumFalconCopy.getPlanet(), millenniumFalconCopy.getTravelDay(), bountyHuntersList):
-               currentRiskDays += 1
+            millenniumFalconCopy.waitOrRefuel()
             self.computeNextTravel(currentRiskDays, millenniumFalconCopy, countdown, bountyHuntersList)

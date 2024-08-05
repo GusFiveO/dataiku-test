@@ -10,6 +10,7 @@ expectedOddsDict = {
     "empire2.json": 0.81,
     "empire3.json": 0.9,
     "empire4.json": 1,
+    "empire5.json": 1,
     "empireError.json": 1
 }
 
@@ -32,4 +33,4 @@ if __name__ == "__main__":
                 else:
                     print(f"{testedFilePath} TEST PASSED ✅")
             except Exception as e:
-                print(type(e).__name__, e)
+                print(f"{testedFilePath} TEST FAILED ❌: exception catched: {type(e).__name__} {e}")
