@@ -53,5 +53,10 @@ class C3PO:
          millenniumFalconCopy.travelTo(destination, travelTime)
          self.computeNextTravel(currentRiskDays, millenniumFalconCopy, countdown, bountyHuntersList)
          while millenniumFalconCopy.getTravelDay() + travelTime < countdown:
-            millenniumFalconCopy.wait()
+            if millenniumFalconCopy.isFullOfFuel():
+               millenniumFalconCopy.wait()
+            else:
+               millenniumFalconCopy.refuel()
+            if isBountyHuntersPresent(millenniumFalconCopy.getPlanet(), millenniumFalconCopy.getTravelDay(), bountyHuntersList):
+               currentRiskDays += 1
             self.computeNextTravel(currentRiskDays, millenniumFalconCopy, countdown, bountyHuntersList)

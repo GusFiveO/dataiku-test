@@ -5,6 +5,9 @@ class MillenniumFalcon:
         self.maxAutonomy = maxAutonomy
         self.autonomy = maxAutonomy
         self.travelDay = 0
+    
+    def isFullOfFuel(self):
+        return self.autonomy == self.maxAutonomy
 
     def refuel(self):
         self.autonomy = self.maxAutonomy
