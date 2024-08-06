@@ -2,6 +2,6 @@
   "countdown": 6,
   "bounty_hunters": [
     {"planet": "Dagobah", "day": 3},
-    {"planet": "Hoth", "day": 3}
+    {"planet": "Hoth", "day": 6}
   ]
 }
